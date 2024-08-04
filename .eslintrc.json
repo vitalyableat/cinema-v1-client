@@ -15,8 +15,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "sourceType": "module"
   },
   "plugins": [
     "react-refresh",
@@ -26,7 +25,18 @@
     "prettier"
   ],
   "rules": {
-    "simple-import-sort/imports": "error",
+    "react/react-in-jsx-scope": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [["^react"], ["^@?\\w"], ["@/(.*)"], ["^[./]"]]
+      }
+    ],
     "simple-import-sort/exports": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
